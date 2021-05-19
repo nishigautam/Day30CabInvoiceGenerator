@@ -35,7 +35,7 @@ public class InvoiceGeneratorTest {
     public void givenMultipleRides_ReturnTotalFare() {
         CabInvoiceGenerator cabInvoiceGenerator = new CabInvoiceGenerator();
         Ride[] rides = {new Ride(2.0, 5), new Ride(0.01, 1)};
-        double fare = cabInvoiceGenerator.calculateFare(rides);
-        Assert.assertEquals(30.0, fare, 0.0);
+        InvoiceSummary summary = cabInvoiceGenerator.returnRideSummary(rides);
+        InvoiceSummary checkSummary = new InvoiceSummary(2,30.0);
     }
 }
